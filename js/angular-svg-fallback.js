@@ -7,10 +7,13 @@
 (function (window) {
   'use strict';
 
+  // private method for detecting SVG support
   var isSvgSupported = function () {
     return window.Modernizr && window.Modernizr.svg;
   };
 
+  // svg-fallback
+  // ------------
   // Images marked with the `svg` directive will fallback to PNG if the browser
   // does not support SVG. If a specific file needs to be applied the default
   // behavior can be altered by the `data-fallback-src`.
@@ -27,6 +30,7 @@
           src = element.attr('src').replace(/\.svg[z]{0,1}$/, '.png');
         }
 
+        // If a `src` was determined apply to the image
         if (src) { element.attr('src', src); }
       }
     };

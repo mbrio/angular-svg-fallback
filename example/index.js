@@ -8,6 +8,7 @@
   'use strict';
 
   angular
+    // Include svg-fallback
     .module('svgtest', ['svg-fallback'])
     .controller('image-viewer', function ($scope) {
     });
