@@ -4,11 +4,11 @@
 
 /*global angular:true, browser: true */
 
-(function () {
+(function (window) {
   'use strict';
 
   var isSvgSupported = function () {
-    return Modernizr && Modernizr.svg;
+    return window.Modernizr && window.Modernizr.svg;
   };
 
   // Images marked with the `svg` directive will fallback to PNG if the browser
@@ -31,4 +31,4 @@
       }
     };
   });
-}());
+}(window));

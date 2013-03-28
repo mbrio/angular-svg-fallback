@@ -13,7 +13,9 @@
     "example",
     "test"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "modernizr": "~2.6.2"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/qloo/angular-svg-fallback.git"

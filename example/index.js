@@ -6,4 +6,9 @@
 
 (function () {
   'use strict';
+
+  angular
+    .module('svgtest', ['svg-fallback'])
+    .controller('image-viewer', function ($scope) {
+    });
 }());
