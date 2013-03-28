@@ -18,20 +18,23 @@
   // does not support SVG. If a specific file needs to be applied the default
   // behavior can be altered by the `data-fallback-src`.
   angular.module('svg-fallback', []).directive('svg', function () {
-    return function (scope, element, attrs) {
-      // Should we remove our dependency on Modernizr?
-      if (!isSvgSupported()) {
-        // Check to see if we have a fallback source
-        var src = element.attr('data-fallback-src');
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        // Should we remove our dependency on Modernizr?
+        if (!isSvgSupported()) {
+          // Check to see if we have a fallback source
+          var src = element.attr('data-fallback-src');
 
-        // If we do not have a fallback source then convert the SVG extension to
-        // `png`
-        if (!src && element.attr('src')) {
-          src = element.attr('src').replace(/\.svg[z]{0,1}$/, '.png');
+          // If we do not have a fallback source then convert the SVG extension to
+          // `png`
+          if (!src && element.attr('src')) {
+            src = element.attr('src').replace(/\.svg[z]{0,1}$/, '.png');
+          }
+
+          // If a `src` was determined apply to the image
+          if (src) { element.attr('src', src); }
         }
-
-        // If a `src` was determined apply to the image
-        if (src) { element.attr('src', src); }
       }
     };
   });
