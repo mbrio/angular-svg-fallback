@@ -7,7 +7,9 @@
 (function () {
   'use strict';
 
-  var isSvgSupported = Modernizr && Modernizr.svg;
+  var isSvgSupported = function () {
+    return Modernizr && Modernizr.svg;
+  };
 
   // Images marked with the `svg` directive will fallback to PNG if the browser
   // does not support SVG. If a specific file needs to be applied the default
@@ -15,7 +17,7 @@
   angular.module('svg-fallback', []).directive('svg', function () {
     return function (scope, element, attrs) {
       // Should we remove our dependency on Modernizr?
-      if (!isSvgSupported) {
+      if (!isSvgSupported()) {
         // Check to see if we have a fallback source
         var src = element.attr('data-fallback-src');
 

@@ -7,6 +7,7 @@ files = [
   JASMINE,
   JASMINE_ADAPTER,
   'example/components/modernizr/modernizr.js',
+  'example/components/jquery/jquery.js',
   'example/components/angular/angular.js',
   'example/components/angular-mocks/angular-mocks.js',
   'js/angular-svg-fallback.js',
