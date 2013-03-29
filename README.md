@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/qloo/angular-svg-fallback.png)](htt    ps://travis-ci.org/qloo/angular-svg-fallback)
+
 # AngularJS SVG Fallback Module
 
 Provides a mechanism for SVG(Z) fallback to bitmap images.  
