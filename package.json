@@ -13,7 +13,7 @@
     "images"
   ],
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt check"
   },
   "author": "Michael Diolosa <michael.diolosa@gmail.com>",
   "license": "MIT",
