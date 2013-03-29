@@ -8,7 +8,7 @@ http://qloo.github.com/angular-svg-fallback/
 ## Stability
 
 ```
-Stability: 4 - Stable
+Stability: 3 - Stable
 ```
 
 For more information you can view the Node.js [stability index](http://nodejs.org/api/all.html#all_stability_index).
