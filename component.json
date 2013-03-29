@@ -1,6 +1,6 @@
 {
   "name": "angular-svg-fallback",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "./js/angular-svg-fallback.js",
   "ignore": [
     ".gitignore",

@@ -1,6 +1,6 @@
 {
   "name": "angular-svg-fallback",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Provides a mechanism for SVG(Z) fallback to bitmap images.",
   "main": "js/angular-svg-fallback.js",
   "repository": {
