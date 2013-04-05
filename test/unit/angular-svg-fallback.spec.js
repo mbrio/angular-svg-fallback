@@ -5,6 +5,12 @@ describe('svg-fallback', function () {
 
   afterEach(function () { Modernizr.svg = svg; });
 
+  describe('version', function() {
+    it('should return current version', inject(function(version) {
+      expect(version).toEqual('1.0.4');
+    }));
+  });
+
   describe('svg supported', function () {
     beforeEach(function() { Modernizr.svg = true; });
 

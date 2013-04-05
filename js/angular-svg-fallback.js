@@ -13,11 +13,20 @@
   };
 
   // svg-fallback
-  // ------------
+  // ============
+  angular.module('svg-fallback', [])
+
+  // Properties
+  // ----------
+  // Version
+  .constant('version', '1.0.4')
+
+  // Directives
+  // ----------
   // Images marked with the `svg` directive will fallback to PNG if the browser
   // does not support SVG. If a specific file needs to be applied the default
   // behavior can be altered by the `data-fallback-src`.
-  angular.module('svg-fallback', []).directive('svg', function () {
+  .directive('svg', function () {
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
