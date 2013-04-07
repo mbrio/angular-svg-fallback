@@ -3,7 +3,8 @@
 # AngularJS SVG Fallback Module
 
 Provides a mechanism for SVG(Z) fallback to bitmap images.  
-http://qloo.github.com/angular-svg-fallback/
+http://qloo.github.io/angular-svg-fallback/  
+https://github.com/qloo/angular-svg-fallback/
 
 ## Stability
 
