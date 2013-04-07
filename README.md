@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/qloo/angular-svg-fallback.png)](htt    ps://travis-ci.org/qloo/angular-svg-fallback)
+[![Build Status](https://travis-ci.org/qloo/angular-svg-fallback.png)](https://travis-ci.org/qloo/angular-svg-fallback)
 
 # AngularJS SVG Fallback Module
 
