@@ -1,3 +1,8 @@
+/* jshint -W024 */
+/* jshint expr:true */
+
+var expect = chai.expect;
+
 describe('svg-fallback', function () {
   beforeEach(module('svg-fallback'));
 
@@ -7,18 +12,25 @@ describe('svg-fallback', function () {
 
   describe('version', function() {
     it('should return current version', inject(function(version) {
-      expect(version).toEqual('1.0.4');
+      expect(version).to.equal('1.0.4');
     }));
   });
 
   describe('svg supported', function () {
     beforeEach(function() { Modernizr.svg = true; });
 
-    it('should not translate SVGs if browsers support them', inject(function ($compile, $rootScope) {
+    it('should not translate SVGs to PNGs if browsers support them', inject(function ($compile, $rootScope) {
       var elm = angular.element('<div><img src="test.svg" data-fallback-src="test@2x.png" svg></div>'),
         ele = $compile(elm)($rootScope);
       $rootScope.$apply();
-      expect($(ele).find('img[src="test.svg"]').size()).toBe(1);
+      expect(angular.element(ele).find('img').attr('src')).to.equal('test.svg');
+    }));
+
+    it('should not translate SVGZs to PNGs if browsers support them', inject(function ($compile, $rootScope) {
+      var elm = angular.element('<div><img src="test.svgz" data-fallback-src="test@2x.png" svg></div>'),
+        ele = $compile(elm)($rootScope);
+      $rootScope.$apply();
+      expect(angular.element(ele).find('img').attr('src')).to.equal('test.svgz');
     }));
   });
 
@@ -29,28 +41,28 @@ describe('svg-fallback', function () {
       var elm = angular.element('<div><img svg></div>'),
         ele = $compile(elm)($rootScope);
       $rootScope.$apply();
-      expect($(ele).find('img').size()).toBe(1);
+      expect(angular.element(ele).find('img').length).to.equal(1);
     }));
 
-    it('should support the SVGZ file extensions', inject(function ($compile, $rootScope) {
+    it('should translate SVGZs to PNGs if browsers don\'t support them', inject(function ($compile, $rootScope) {
       var elm = angular.element('<div><img src="test.svgz" svg></div>'),
         ele = $compile(elm)($rootScope);
       $rootScope.$apply();
-      expect($(ele).find('img[src="test.png"]').size()).toBe(1);
+      expect(angular.element(ele).find('img').attr('src')).to.equal('test.png');
     }));
 
-    it('should translate SVGs if browsers support them', inject(function ($compile, $rootScope) {
+    it('should translate SVGs to PNGs if browsers don\'t support them', inject(function ($compile, $rootScope) {
       var elm = angular.element('<div><img src="test.svg" svg></div>'),
         ele = $compile(elm)($rootScope);
       $rootScope.$apply();
-      expect($(ele).find('img[src="test.png"]').size()).toBe(1);
+      expect(angular.element(ele).find('img').attr('src')).to.equal('test.png');
     }));
 
-    it('should translate SVGs using  if browsers support them', inject(function ($compile, $rootScope) {
+    it('should translate SVGs using data-fallback-src if browsers don\'t support them', inject(function ($compile, $rootScope) {
       var elm = angular.element('<div><img src="test.svg" data-fallback-src="test@2x.png" svg></div>'),
         ele = $compile(elm)($rootScope);
       $rootScope.$apply();
-      expect($(ele).find('img[src="test@2x.png"]').size()).toBe(1);
+      expect(angular.element(ele).find('img').attr('src')).to.equal('test@2x.png');
     }));
   });
 });

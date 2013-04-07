@@ -2,9 +2,8 @@
   "name": "angular-svg-fallback-example",
   "version": "1.0.4",
   "dependencies": {
-    "jquery": "~1.9.1",
-    "angular": "~1.0.5",
+    "angular": "~1.0.6",
     "modernizr": "x.x.x",
-    "angular-mocks": "~1.0.5"
+    "angular-mocks": "git://github.com/angular/angular.js.git"
   }
 }
